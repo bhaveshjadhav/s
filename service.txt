@@ -1,0 +1,14 @@
+[Unit]
+Description=Funds Backend
+
+[Service]
+WorkingDirectory=/home/ubuntu/funds-backend
+User=root
+Type=simple
+Environment="APP_ENV=dev"
+ExecStart=node index.js
+ExecReload=/bin/kill -HUP ${MAINPID}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
